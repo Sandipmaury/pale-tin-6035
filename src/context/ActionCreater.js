@@ -25,3 +25,10 @@ export const isDataFetched = (value) => {
     payload: value,
   };
 };
+
+export const isDarkMode = (value) => {
+  return {
+    type: "DARK_MODE",
+    payload: value,
+  };
+};
