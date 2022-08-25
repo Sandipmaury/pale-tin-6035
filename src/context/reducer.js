@@ -8,6 +8,8 @@ export default function reducer(state, actions) {
       return { ...state, isError: actions.payload };
     case "IS_DATA_FETCHED":
       return { ...state, data: actions.payload };
+    case "DARK_MODE":
+      return { ...state, isDarkMode: actions.payload };
     default:
       return state;
   }
