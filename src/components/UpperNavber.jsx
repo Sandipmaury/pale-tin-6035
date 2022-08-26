@@ -18,7 +18,7 @@ export default function UpperNavbar() {
       justifyContent="center"
       borderBottom="1px solid grey"
     >
-      <Flex w="65vw" gap="2rem" fontSize="0.8rem" fontWeight="500">
+      <Flex w={['95vw', '95vw', '1200px']} overflowX={['scroll', 'auto', 'auto']} gap="2rem" fontSize="0.8rem" fontWeight="500">
         <NavLink style={checkActive} to="/">
           India Today
         </NavLink>

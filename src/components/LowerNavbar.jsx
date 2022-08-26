@@ -23,7 +23,7 @@ export default function LowerNavbar() {
       <Flex
         alignContent="center"
         justifyContent="space-between"
-        w="65vw"
+        w={['95vw', '95vw', '1500px']}
         paddingTop="5px"
         paddingBottom="5px"
         fontSize="1xl"

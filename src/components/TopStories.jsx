@@ -5,15 +5,15 @@ import { AppContext } from "../context/AppContext";
 
 export default function TopStories() {
   const { state, darkMode } = useContext(AppContext);
-  const top10Stories = state.data;
-  top10Stories.length = 30;
+  const top30Stories = state.data;
+  top30Stories.length = 30;
   return (
-    <Box w="20%"  border="1px solid grey" >
+    <Box w={['100%', '100%', '20%']}  border="1px solid grey" >
       <Text pl="7px" fontWeight="bold" mb="10px" fontSize="2xl">
         Top Stories
       </Text>
-      <Box overflow="scroll" h="500px">
-        {top10Stories?.map((el) => {
+      <Box overflowY={['visible', 'scroll', 'scroll']} h={['auto', "500px", "500px"]}>
+        {top30Stories?.map((el) => {
           return (
             <Box
               borderBottom="1px solid grey"

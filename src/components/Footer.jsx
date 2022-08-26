@@ -1,10 +1,21 @@
 import React from "react";
-import { Box, Flex, Img, Link, List, ListItem, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Collapse,
+  Flex,
+  Img,
+  Link,
+  List,
+  ListItem,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import FooterDropDown from "./FooterDropDown";
 
 export default function Footer() {
+  const { isOpen, onToggle } = useDisclosure();
   const [footer, setFooter] = useState(false);
   return (
     <Box bg="#000000">
@@ -12,9 +23,10 @@ export default function Footer() {
         margin="auto"
         alignContent="center"
         justifyContent="space-between"
-        w="65vw"
+        w={['95vw', '95vw', '1200px']}
         fontSize="1xl"
         color="white"
+        pt='3'
       >
         <Text>INDIATODAY.IN</Text>
         <Flex
@@ -26,10 +38,10 @@ export default function Footer() {
           <Box
             fontWeight="bold"
             cursor="pointer"
-            onClick={() => setFooter(!footer)}
+            onClick={onToggle}
             className="material-symbols-outlined"
           >
-            {!footer ? "expand_less" : "close"}
+            {!isOpen ? "expand_less" : "close"}
           </Box>
           <Box
             _hover={{ color: "yellow" }}
@@ -60,7 +72,9 @@ export default function Footer() {
           </Box>
         </Flex>
       </Flex>
-      {footer ? <FooterDropDown /> : null}
+      <Collapse in={isOpen}>
+        <FooterDropDown />
+      </Collapse>
       <Flex
         flexDirection="column"
         margin="auto"

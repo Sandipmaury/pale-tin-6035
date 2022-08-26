@@ -10,11 +10,11 @@ export default function MiddleNavbar() {
       <Flex
         alignContent="center"
         justifyContent="center"
-        w="65vw"
+        w={['95vw', '95vw', '1200px']}
         paddingTop="10px"
         paddingBottom="10px"
-        gap="50px"
-        fontSize="2xl"
+        gap={["10px", "20px", "50px"]}
+        fontSize={["1xl", "2xl", "2xl"]}
       >
         <Box _hover={{ color: "yellow" }}>
           <NavLink to="/news">NEWS</NavLink>

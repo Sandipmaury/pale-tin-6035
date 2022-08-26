@@ -6,21 +6,12 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
-export default function VisualStories() {
+export default function SpecialToday() {
   const [data, setData] = useState([]);
-  const [left, setLeft] = useState(3);
-  const [right, setRight] = useState(7);
-
-  const visiblity =
-    left === 3 ? { visibility: "hidden" } : { visibility: "visible" };
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(1);
   const { state, darkMode } = useContext(AppContext);
-  const slideData = [
-    state.data[3],
-    state.data[4],
-    state.data[5],
-    state.data[6],
-    state.data[7],
-  ];
+  const slideData = [state.data[0], state.data[1]];
   useEffect(() => {
     setData(slideData);
   }, []);
@@ -42,12 +33,39 @@ export default function VisualStories() {
   };
   return (
     <Box>
-      <Text mb="10px" fontSize="20px" fontWeight="500">
-        VISUAL STORIES
-      </Text>
+      <Flex  justifyContent='space-between'>
+        <Text mb="10px" fontSize="20px" fontWeight="500">
+          TODAY'S SPECIAL
+        </Text>
+        <Flex>
+          <Button
+            w="10px"
+            onClick={() => handleSlide(-1)}
+            disabled={left === 0}
+            borderRadius="50%"
+            bg="none"
+            border="1px"
+            className="material-symbols-outlined"
+          >
+            arrow_left{" "}
+          </Button>
+          <Text fontSize='2xl'>{left + 1}/6</Text>
+          <Button
+            w="10px"
+            disabled={right === 5}
+            onClick={() => handleSlide(1)}
+            borderRadius="50%"
+            bg="none"
+            border="1px"
+            className="material-symbols-outlined"
+          >
+            arrow_right{" "}
+          </Button>
+        </Flex>
+      </Flex>
+
       <Flex
-        pos="relative"
-        w={['95vw', 'auto', 'auto']}
+        w={["95vw", "400px", "400px"]}
         border="1px solid grey"
         borderRadius="10px"
         p="20px"
@@ -56,7 +74,7 @@ export default function VisualStories() {
       >
         {data?.map((el) => {
           return (
-            <Box w="130px" border="1px solid grey" borderRadius="5px">
+            <Box w="200px" borderRadius="5px">
               <NavLink to="#">
                 <Image borderRadius="5px 5px 0px 0px" src={el.urlToImage} />
                 <Text p="7px">{el.title}</Text>
@@ -64,33 +82,6 @@ export default function VisualStories() {
             </Box>
           );
         })}
-        <Button
-          w="10px"
-          onClick={() => handleSlide(-1)}
-          {...visiblity}
-          borderRadius="50%"
-          bg="none"
-          border="1px"
-          pos="absolute"
-          top="40%"
-          left="2px"
-          className="material-symbols-outlined"
-        >
-          arrow_left{" "}
-        </Button>
-        <Button
-          w="10px"
-          onClick={() => handleSlide(1)}
-          borderRadius="50%"
-          bg="none"
-          border="1px"
-          right="2px"
-          top="40%"
-          pos="absolute"
-          className="material-symbols-outlined"
-        >
-          arrow_right{" "}
-        </Button>
       </Flex>
     </Box>
   );
