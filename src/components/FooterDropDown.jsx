@@ -6,7 +6,7 @@ export default function FooterDropDown() {
   return (
     <Flex
       justifyContent="space-between"
-      w="65vw"
+      w={['95vw', '95vw','95vw','95vw', '1200px']}
       margin="auto"
       fontSize="15px"
       color="white"

@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -9,9 +9,9 @@ import { AppContext } from "../context/AppContext";
 export default function Opinion() {
   const [data, setData] = useState([]);
   const [left, setLeft] = useState(0);
-  const [right, setRight] = useState(0);
+  const [right, setRight] = useState(1);
   const { state, darkMode } = useContext(AppContext);
-  const slideData = [state.data[0]];
+  const slideData = [state.data[0], state.data[1]];
   useEffect(() => {
     setData(slideData);
   }, []);
@@ -63,23 +63,26 @@ export default function Opinion() {
         </Flex>
       </Flex>
 
-      <Flex
+      <Grid
         w={["95vw", "400px", "400px"]}
         gap="10px"
         overflow="hidden"
+        templateColumns='300px 1fr'
       >
         {data?.map((el) => {
           return (
-            <Flex w='300px' alignItems='center' justifyContent='center' h='300px'
-             borderRadius="5px" border="1px solid grey">
+            <Box w='270px' h='300px' textAlign='center' p='20px'
+             borderRadius="5px" border="1px solid grey"
+              _hover={darkMode.color === 'white' ? {color:'red'} : {color:'blue'}}>
               <NavLink to="#">
-                <Image w='100px' h='100px' borderRadius="50%" border="5px solid yellow"  src={el.urlToImage} />
-                <Text>{el.title}</Text>
+                <Image ml='65px' alignSelf='center' w='100px' h='100px' borderRadius="50%" border="5px solid yellow"  src={el.urlToImage} />
+                <Text borderBottom='1px solid grey' mt='20px' pb='50px'>{el.title}</Text>
               </NavLink>
-            </Flex>
+              <Text color='gray' fontStyle='oblique' mt='15px'>Sandip Maurya</Text>
+            </Box>
           );
         })}
-      </Flex>
+      </Grid>
     </Box>
   );
 }

@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
-import { Flex, Link, Box } from "@chakra-ui/react";
+import { Flex, Link, Box, Collapse, useDisclosure, Hide } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import DropDown from "./DropDown";
 import { AppContext } from "../context/AppContext";
 export default function LowerNavbar() {
+  const { isOpen, onToggle } = useDisclosure();
   const { darkMode } = useContext(AppContext);
-  const [menu, setMenu] = React.useState(true);
   const feedStyle = {
     display: "flex",
     alignContent: "center",
     justifyContent: "space-between",
   };
+  const borderBottom = ['1px solid gray', 'none', 'none'];
   const checkActive = ({ isActive }) =>
     isActive ? { color: "yellow" } : { color: "white" };
   return (
@@ -18,18 +19,19 @@ export default function LowerNavbar() {
       position="relative"
       alignContent="center"
       justifyContent="center"
-      bg="#a00606"
+      bg={[ 'transparent', "#a00606", "#a00606"]}
     >
       <Flex
         alignContent="center"
         justifyContent="space-between"
-        w={['95vw', '95vw', '1500px']}
+        w={['95vw', '95vw', '1200px']}
         paddingTop="5px"
         paddingBottom="5px"
         fontSize="1xl"
-        color="white"
+        color={['transparent', "white","white"]}
+        overflow={['scroll', 'scroll', 'auto']}
       >
-        <Flex gap="20px">
+        <Flex gap="20px" flexDirection={['column', 'row', 'row']}>
           <NavLink style={checkActive} to="/">
             HOME
           </NavLink>
@@ -67,6 +69,7 @@ export default function LowerNavbar() {
             BEST UNIVERSITIES
           </NavLink>
         </Flex>
+        <Hide below="sm">
         <Flex gap="15px" flexDirection="row-reverse">
           <Box _hover={{ color: "yellow" }}>
             <NavLink to="#" className="material-symbols-outlined">
@@ -94,19 +97,22 @@ export default function LowerNavbar() {
             </NavLink>
           </Box>
           <Box
-            {...(!menu ? darkMode : null)}
-            {...(!menu
+            {...(isOpen ? darkMode : null)}
+            {...(isOpen
               ? { marginBottom: "-5px", borderRadius: "3px 3px 0px 0px" }
               : null)}
             cursor="pointer"
-            onClick={() => setMenu(!menu)}
+            onClick={onToggle}
             className="material-symbols-outlined"
           >
-            {menu ? "menu" : "close"}
+            {!isOpen ? "menu" : "close"}
           </Box>
         </Flex>
+        </Hide>
       </Flex>
-      {!menu ? <DropDown /> : null}
+      <Collapse in={isOpen} animateOpacity>
+        <DropDown />
+      </Collapse>
     </Flex>
   );
 }

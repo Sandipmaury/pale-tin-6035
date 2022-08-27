@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
@@ -17,40 +17,42 @@ export default function UpperNavbar() {
       padding="5px 0px"
       justifyContent="center"
       borderBottom="1px solid grey"
+      px='10px'
     >
-      <Flex w={['95vw', '95vw', '1200px']} overflowX={['scroll', 'auto', 'auto']} gap="2rem" fontSize="0.8rem" fontWeight="500">
+      <Flex w={['100vw', '1200px', '1200px']} scrollBehavior='smooth' overflowX={['scroll', 'scroll', 'auto']}
+       gap="2rem" fontSize="0.8rem" fontWeight="500">
         <NavLink style={checkActive} to="/">
-          India Today
+          <Text w='70px'>India Today</Text>
         </NavLink>
         <NavLink style={checkActive} to="/a">
-          Malayalam
+        <Text>Malayalam</Text>
         </NavLink>
         <NavLink style={checkActive} to="/b">
-          India TodayNE
+        <Text w='90px'textAlign='center' >India TodayNE</Text>
         </NavLink>
         <NavLink style={checkActive} to="/c">
-          Business Today
+        <Text w='90px'textAlign='center'>Business Today</Text>
         </NavLink>
         <NavLink style={checkActive} to="/s">
-          DailyO
+        <Text>DailyO</Text>
         </NavLink>
         <NavLink style={checkActive} to="/de">
-          Aaj Tak
+        <Text w='45px'textAlign='center'>Aaj Tak</Text>
         </NavLink>
         <NavLink style={checkActive} to="/e">
-          LallanTop
+        <Text>LallanTop</Text>
         </NavLink>
         <NavLink style={checkActive} to="/f">
-          Bangla
+        <Text>Bangla</Text>
         </NavLink>
         <NavLink style={checkActive} to="/w">
-          GNTTV
+        <Text>GNTTV</Text>
         </NavLink>
         <NavLink style={checkActive} to="/h">
-          iChowk
+        <Text>iChowk</Text>
         </NavLink>
         <NavLink style={checkActive} to="/n">
-          Reader's Digest
+        <Text w='90px'textAlign='center'>Reader's Digest</Text>
         </NavLink>
       </Flex>
     </Flex>

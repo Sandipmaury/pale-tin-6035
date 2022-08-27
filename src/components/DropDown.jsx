@@ -10,15 +10,17 @@ export default function DropDown() {
     <Flex
       paddingTop="10px"
       paddingBottom="10px"
-      w="100vw"
+      w="100%"
       alignContent="center"
       justifyContent="center"
-      position="absolute"
-      {...darkMode}
-      top="40px"
+      position={['unset', "absolute", "absolute"]}
+      top="38px"
+      left='0px'
+      shadow='lg'
+      bg ={darkMode.color === 'white' ?'#242526':'whitesmoke'}
     >
-      <Flex w="65vw" gap="15%">
-        <List spacing="4">
+      <Flex w={['95vw', '95vw', '1200px']} gap="15%" flexDirection={['column', 'row', 'row']} flexWrap='wrap'>
+        <List spacing="4" mb='10px'>
           <ListItem borderBottom="1px">
             <NavLink to="#">HEALTH</NavLink>
           </ListItem>
@@ -38,7 +40,7 @@ export default function DropDown() {
             <NavLink to="#">CRYPTOCURRENCY</NavLink>
           </ListItem>
         </List>
-        <List spacing="4">
+        <List  mb='10px' spacing="4">
           <ListItem borderBottom="1px">
             <NavLink to="#">AUTO</NavLink>CITIES
           </ListItem>
@@ -58,7 +60,7 @@ export default function DropDown() {
             <NavLink to="#">INTERACTIVES</NavLink>
           </ListItem>
         </List>
-        <List spacing="4">
+        <List  mb='10px' spacing="4">
           <ListItem borderBottom="1px">
             <NavLink to="#">VISUAL STORIES</NavLink>
           </ListItem>
@@ -78,7 +80,7 @@ export default function DropDown() {
             <NavLink to="#">SHOPPING</NavLink>
           </ListItem>
         </List>
-        <List spacing="4">
+        <List  mb='10px' spacing="4">
           <ListItem borderBottom="1px">
             <NavLink to="#">GAMING</NavLink>
           </ListItem>

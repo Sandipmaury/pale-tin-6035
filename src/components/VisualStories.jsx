@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -20,6 +20,7 @@ export default function VisualStories() {
     state.data[5],
     state.data[6],
     state.data[7],
+
   ];
   useEffect(() => {
     setData(slideData);
@@ -45,18 +46,19 @@ export default function VisualStories() {
       <Text mb="10px" fontSize="20px" fontWeight="500">
         VISUAL STORIES
       </Text>
-      <Flex
+      <Grid
         pos="relative"
-        w={['95vw', 'auto', 'auto']}
+        w={['95vw', '65%', '100%']}
         border="1px solid grey"
         borderRadius="10px"
         p="20px"
         gap="10px"
         overflow="hidden"
+        templateColumns= 'repeat(5, 130px)'
       >
         {data?.map((el) => {
           return (
-            <Box w="130px" border="1px solid grey" borderRadius="5px">
+            <Box border="1px solid grey" borderRadius="5px">
               <NavLink to="#">
                 <Image borderRadius="5px 5px 0px 0px" src={el.urlToImage} />
                 <Text p="7px">{el.title}</Text>
@@ -91,7 +93,7 @@ export default function VisualStories() {
         >
           arrow_right{" "}
         </Button>
-      </Flex>
+      </Grid>
     </Box>
   );
 }
