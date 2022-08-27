@@ -46,8 +46,8 @@ export default function Home() {
           <Flex
             pb="20px"
             w={["95vw", "95vw", "1200px"]}
-            flexWrap="wrap"
             margin="auto"
+            flexWrap='wrap'
             h="auto"
             gap="2rem"
             {...darkMode}

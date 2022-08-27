@@ -5,25 +5,21 @@ import {
   Flex,
   Img,
   Link,
-  List,
-  ListItem,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import FooterDropDown from "./FooterDropDown";
 
 export default function Footer() {
   const { isOpen, onToggle } = useDisclosure();
-  const [footer, setFooter] = useState(false);
   return (
     <Box bg="#000000">
       <Flex
         margin="auto"
         alignContent="center"
         justifyContent="space-between"
-        w={['95vw', '95vw', '1200px']}
+        w={['95vw', '95vw','95vw','95vw', '1200px']}
         fontSize="1xl"
         color="white"
         pt='3'
@@ -114,7 +110,7 @@ export default function Footer() {
         justifyContent="center"
         color="grey"
       >
-        <Text>
+        <Text textAlign='center'>
           Copyright © 2022 Living Media India Limited. For reprint rights:
           <Link _hover={{ color: "red" }} to="#">
             Syndications Today

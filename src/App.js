@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Hide } from "@chakra-ui/react";
 import { useContext } from "react";
 import Footer from "./components/Footer";
 import LowerNavbar from "./components/LowerNavbar";
@@ -13,7 +13,9 @@ function App() {
     <Box className="App" {...darkMode}>
       <UpperNavbar />
       <MiddleNavbar />
-      <LowerNavbar />
+      <Hide below="sm">
+        <LowerNavbar />
+      </Hide>
       <AllRoutes />
       <Footer />
     </Box>

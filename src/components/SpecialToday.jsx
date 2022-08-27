@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function SpecialToday() {
           <Text fontSize='2xl'>{left + 1}/6</Text>
           <Button
             w="10px"
-            disabled={right === 5}
+            disabled={right === 6}
             onClick={() => handleSlide(1)}
             borderRadius="50%"
             bg="none"
@@ -64,17 +64,18 @@ export default function SpecialToday() {
         </Flex>
       </Flex>
 
-      <Flex
-        w={["95vw", "400px", "400px"]}
+      <Grid
+        w={["95vw", "400px", "430px"]}
         border="1px solid grey"
         borderRadius="10px"
         p="20px"
         gap="10px"
         overflow="hidden"
+        templateColumns='200px 1fr'
       >
         {data?.map((el) => {
           return (
-            <Box w="200px" borderRadius="5px">
+            <Box _hover={darkMode.color === 'white' ? {color:'red'} : {color:'blue'}} w="200px" borderRadius="5px">
               <NavLink to="#">
                 <Image borderRadius="5px 5px 0px 0px" src={el.urlToImage} />
                 <Text p="7px">{el.title}</Text>
@@ -82,7 +83,7 @@ export default function SpecialToday() {
             </Box>
           );
         })}
-      </Flex>
+      </Grid>
     </Box>
   );
 }
