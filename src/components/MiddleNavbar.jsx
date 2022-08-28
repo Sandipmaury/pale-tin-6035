@@ -45,7 +45,7 @@ export default function MiddleNavbar() {
           </Box>
         </Hide>
         <Box _hover={{ color: "yellow" }}>
-          <NavLink to="/news">NEWS</NavLink>
+          <NavLink to="/">NEWS</NavLink>
         </Box>
         <Box _hover={{ color: "yellow" }}>
           <NavLink to="/live">LIVE TV</NavLink>

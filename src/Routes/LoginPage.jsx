@@ -14,29 +14,38 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import { EmailIcon, UnlockIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+
+const getResponse = async(data)=>{
+    return fetch("https://reqres.in/api/login",{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{"Content-Type":"application/json"}
+    })
+    .then((res)=> res.json());
+}
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAuth, setAuth] = useState(false);
   const clickHandler = () => {
     console.log(email, password);
-    fetch("https://reqres.in/api/login", {
-      method: "POST",
-      body: JSON.stringify({ email: email, password: password }),
-      headers: { "Contant-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((res) => {
+    const data = {
+        email: email,
+        password: password
+    }
+    getResponse(data).then((res)=>{
+        setAuth(true); 
         console.log(res);
-      })
-      .catch((rej) => {
+    })
+    .catch((rej)=>{
         console.log(rej);
-      });
+    })
   };
-  return (
+  return (isAuth ? <Navigate to={"/"}/>:
     <Box>
       <Box bg="#151515" py="10px">
         <Flex
@@ -213,5 +222,5 @@ export default function LoginPage() {
         </Text>
       </Flex>
     </Box>
-  );
+);
 }
