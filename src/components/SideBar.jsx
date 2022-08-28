@@ -22,7 +22,7 @@ export default function SideBar() {
             <Box color='white' bg='red' p='3px' borderRadius='50%' className="material-symbols-outlined">
                 person
             </Box>
-            <NavLink to='#'>Login</NavLink>
+            <NavLink to='/login'>Login</NavLink>
             </Flex>
             <Flex alignItems='center' bg='whitesmoke'>
                 <Box px='3px' className="material-symbols-outlined">mic</Box>
