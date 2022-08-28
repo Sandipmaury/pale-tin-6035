@@ -72,7 +72,7 @@ export default function LowerNavbar() {
         <Hide below="sm">
         <Flex gap="15px" flexDirection="row-reverse">
           <Box _hover={{ color: "yellow" }}>
-            <NavLink to="#" className="material-symbols-outlined">
+            <NavLink to="/login" className="material-symbols-outlined">
               person
             </NavLink>
           </Box>

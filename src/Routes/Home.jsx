@@ -1,28 +1,20 @@
 import React from "react";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import { Text, Container, Box, Flex } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 import TopNews from "../components/TopNews";
 import TopStories from "../components/TopStories";
 import VisualStories from "../components/VisualStories";
 import Opinion from "../components/Opinion";
 import SpecialToday from "../components/SpecialToday";
-import Movies from "../components/Movies";
-import Technology from "../components/Technology";
-import Sport from "../components/Sport";
-import LifeStyle from "../components/LifeStyle";
-import Trending from "../components/Trending";
-import India from "../components/India";
-import Business from "../components/Business";
-import Television from "../components/Television";
-import World from "../components/Wolrd";
+import Constructor from "../components/Constructor";
 export default function Home() {
   const { state, dispatch, darkMode } = useContext(AppContext);
   return (
     <>
       {state.isLoding ? (
         <Text fontSize="1xl" textAlign="center">
-          ..Loding
+          ...Loding
         </Text>
       ) : state.isError ? (
         <Text textAlign="center" fontSize="5xl">
@@ -65,37 +57,21 @@ export default function Home() {
             gap="2rem"
             {...darkMode}
           >
-            <Movies />
-            <Technology />
-            <Sport />
-          </Flex>
-          <Flex
-            pb="20px"
-            w={["95vw", "95vw", "1200px"]}
-            justifyContent="space-between"
-            flexWrap="wrap"
-            margin="auto"
-            h="auto"
-            gap="2rem"
-            {...darkMode}
-          >
-            <LifeStyle />
-            <Trending />
-            <India />
-          </Flex>
-          <Flex
-            pb="20px"
-            w={["95vw", "95vw", "1200px"]}
-            justifyContent="space-between"
-            flexWrap="wrap"
-            margin="auto"
-            h="auto"
-            gap="2rem"
-            {...darkMode}
-          >
-            <Business />
-            <Television />
-            <World />
+            <Constructor name={"MOVIES"} num = {4} />
+            <Constructor name={"TECHNOLOGY"} num = {9} />
+            <Constructor name={"SPORT"} num = {21} />
+            <Constructor name={"LIFESTYLE"} num = {2} />
+            <Constructor name={"TRENDING"} num = {3} />
+            <Constructor name={"INDIA"} num = {19} />
+            <Constructor name={"BUSINESS"} num = {1} />
+            <Constructor name={"TELEVISION"} num = {5} />
+            <Constructor name={"WORLD"} num = {11} />
+            <Constructor name={"AUTO"} num = {6} />
+            <Constructor name={"EDUCATION TODAY"} num = {7} />
+            <Constructor name={"CITIES"} num = {17} />
+            <Constructor name={"HEALTH"} num = {23} />
+            <Constructor name={"NEWS ANALYSIS"} num = {15} />
+            <Constructor name={"INDIA TODAY INSIGHT"} num = {12} />
           </Flex>
         </>
       )}
