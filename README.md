@@ -1,6 +1,6 @@
 ### Clone of India Today
 
-Hi, my name is Sandip Maurya and this is first day on this project. In this project I am going to clone India Today Website.
+This is clone of India today web app from here you can Check out the latest news from India and around the world. Latest India news on Bollywood, Politics, Business, Cricket, Technology and Travel. I have cloned landing page and login page in 5days.
 
 
 ## screen shots
