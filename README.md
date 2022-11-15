@@ -1,4 +1,4 @@
-### Clone of India Today
+## Clone of India Today
 
 This is clone of India today web app from here you can Check out the latest news from India and around the world. Latest India news on Bollywood, Politics, Business, Cricket, Technology and Travel. I have cloned landing page and login page in 5days.
 
