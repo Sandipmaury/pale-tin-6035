@@ -5,10 +5,9 @@ This is clone of India today web app from here you can Check out the latest news
 
 ## screen shots
 
-![Logo](https://i.im.ge/2022/11/13/SrtKBr.home1.png)
-![Logo](https://i.im.ge/2022/11/13/SrtRo1.home2.png)
-![Logo](https://i.im.ge/2022/11/13/SrtZYm.home3.png)
-![Logo](https://i.im.ge/2022/11/13/SrtWUf.recipe.png)
+![Logo](https://i.im.ge/2022/11/15/SFkeDM.indiatoday1.png)
+![Logo](https://i.im.ge/2022/11/15/SFzMCY.indiatoday2.png)
+![Logo](https://i.im.ge/2022/11/15/SFzQvD.indiatoday3.png)
 
 ## Deployed Link
 
